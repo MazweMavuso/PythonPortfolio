@@ -54,7 +54,7 @@ projects = [
     {
         "title": "Technosol Inventory System",
         "description": "Device and inventory tracking system for companies.",
-        "image": "images/inventory.png",
+        "image": "images/inventory.PNG",
         "link": "#"
     },
     {
