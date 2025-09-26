@@ -22,7 +22,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 # --- Profile Section ---
 col1, col2 = st.columns([1,2])
 with col1:
-    st.image("https://i.ibb.co/4pDNDk1/profile-pic.png", width=250)  # profile image URL
+    st.image("https://i.ibb.co/4pDNDk1/port.jpeg", width=250)  # profile image URL
 with col2:
     st.subheader("About Me")
     st.write("""
