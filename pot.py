@@ -55,7 +55,7 @@ projects = [
         "title": "Technosol Inventory System",
         "description": "Device and inventory tracking system for companies.",
         "image": "images/inventory.PNG",
-        "link": "#"
+        "link": "https://swazisms.co.sz/dmd/dash.php"
     },
     {
         "title": "AutoSphere Car Marketplace",
@@ -75,7 +75,7 @@ for project in projects:
     st.markdown("---")
     col1, col2 = st.columns([1,2])
     with col1:
-        st.image(project["image"], use_column_width=True)
+        st.image(project["image"], use_container_width=True)
     with col2:
         st.markdown(f"### {project['title']}")
         st.write(project['description'])
