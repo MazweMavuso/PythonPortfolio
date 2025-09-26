@@ -2,17 +2,17 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 import requests
 
-# Page config
-st.set_page_config(page_title="Zwi Portfolio", page_icon="🚀", layout="wide")
-
-# --- Helper function for Lottie ---
+# --- Helper to load Lottie animations ---
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
-# --- Header with animation ---
+# --- Page config ---
+st.set_page_config(page_title="Zwi Portfolio", page_icon="🚀", layout="wide")
+
+# --- Animated Header ---
 lottie_hero = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_tfb3estd.json")
 st_lottie(lottie_hero, speed=1, height=250, key="hero")
 
@@ -22,9 +22,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 # --- Profile Section ---
 col1, col2 = st.columns([1,2])
 with col1:
-    uploaded_profile = st.file_uploader("Upload Profile Image", type=["png","jpg","jpeg"])
-    if uploaded_profile:
-        st.image(uploaded_profile, width=250)
+    st.image("https://i.ibb.co/4pDNDk1/profile-pic.png", width=250)  # profile image URL
 with col2:
     st.subheader("About Me")
     st.write("""
@@ -56,19 +54,19 @@ projects = [
     {
         "title": "Technosol Inventory System",
         "description": "Device and inventory tracking system for companies.",
-        "image": None,  # can upload or use URL
+        "image": "https://i.ibb.co/0FZ0yJ5/project1.png",
         "link": "#"
     },
     {
         "title": "AutoSphere Car Marketplace",
         "description": "Online platform to buy and sell cars.",
-        "image": None,
+        "image": "https://i.ibb.co/NyD3sN8/project2.png",
         "link": "#"
     },
     {
         "title": "AI Chatbot Portfolio",
         "description": "Customizable AI chatbot powered by OpenAI API.",
-        "image": None,
+        "image": "https://i.ibb.co/ZfVhj8S/project3.png",
         "link": "#"
     }
 ]
@@ -77,15 +75,13 @@ for project in projects:
     st.markdown("---")
     col1, col2 = st.columns([1,2])
     with col1:
-        uploaded_project_img = st.file_uploader(f"Upload image for {project['title']}", type=["png","jpg","jpeg"], key=project['title'])
-        if uploaded_project_img:
-            st.image(uploaded_project_img, use_column_width=True)
+        st.image(project["image"], use_column_width=True)
     with col2:
         st.markdown(f"### {project['title']}")
         st.write(project['description'])
         st.markdown(f"[View Project]({project['link']})")
 
-# --- Lottie Animation for Footer ---
+# --- Footer Lottie Animation ---
 lottie_footer = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_jcikwtux.json")
 st_lottie(lottie_footer, speed=1, height=150, key="footer")
 
@@ -96,7 +92,7 @@ st.write("Email: futuristic.dev@example.com")
 st.write("LinkedIn: [Connect](https://linkedin.com)")
 st.write("GitHub: [Explore](https://github.com)")
 
-# Optional: Dark theme styling
+# --- Dark Theme Styling ---
 st.markdown("""
 <style>
 body {
